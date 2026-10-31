@@ -1,0 +1,81 @@
+:root {
+ --swappy-brand: #ea6113;
+ --swappy-brand-secondary: #f88f22;
+ --swappy-brand-warm: #fbb931;
+ --swappy-accent-soft: #ffe3b3;
+ --swappy-accent: #a83f08;
+ --swappy-accent-hover: #873206;
+ --swappy-on-accent: #ffffff;
+ --swappy-background: #fffbf5;
+ --swappy-surface: #ffffff;
+ --swappy-surface-muted: #f7efe5;
+ --swappy-foreground: #1f1612;
+ --swappy-muted: #6f5d52;
+ --swappy-border: transparent; /* Borders are removed in favor of shadows */
+ --swappy-danger: #a32d28;
+ --swappy-danger-soft: #fff0ee;
+ --swappy-success: #27633e;
+ --swappy-success-soft: #edf7ee;
+ --swappy-warning: #805000;
+ --swappy-warning-soft: #fff4d4;
+ --swappy-focus: #873206;
+ 
+ /* Claymorphism Core Shadows */
+ --shadow-clay: 
+    8px 8px 16px rgb(234 97 19 / 6%), 
+    -8px -8px 16px rgb(255 255 255 / 80%), 
+    inset 4px 4px 8px rgb(255 255 255 / 90%), 
+    inset -4px -4px 8px rgb(234 97 19 / 5%);
+ --shadow-raised: 
+    12px 12px 24px rgb(115 70 27 / 10%), 
+    -10px -10px 20px rgb(255 255 255 / 90%);
+ --shadow-nav: 0 -8px 24px rgb(115 70 27 / 8%);
+ 
+ --swappy-secondary: #ffe3b3;
+ --swappy-secondary-hover: #ffd999;
+ --swappy-on-secondary: #873206;
+ --swappy-secondary-border: transparent;
+ 
+ /* Solid surfaces replace glassmorphism */
+ --swappy-card-surface: #fffbf5; 
+ --swappy-card-border: transparent; 
+ 
+ --swappy-primary-fill: linear-gradient(135deg, var(--swappy-accent), var(--swappy-accent-hover));
+ --swappy-primary-fill-hover: linear-gradient(135deg, var(--swappy-accent-hover), var(--swappy-accent));
+ 
+ /* Puffy Button Shadows */
+ --shadow-primary: 
+    6px 6px 12px rgb(168 63 8 / 25%), 
+    -4px -4px 10px rgb(255 255 255 / 80%), 
+    inset 2px 2px 4px rgb(255 255 255 / 40%), 
+    inset -2px -2px 4px rgb(135 50 6 / 30%);
+ --shadow-primary-hover: 
+    8px 8px 16px rgb(168 63 8 / 30%), 
+    -4px -4px 10px rgb(255 255 255 / 90%), 
+    inset 2px 2px 4px rgb(255 255 255 / 50%);
+ --shadow-secondary: 
+    6px 6px 12px rgb(251 185 49 / 16%), 
+    -6px -6px 12px rgb(255 255 255 / 90%),
+    inset 2px 2px 6px rgb(255 255 255 / 90%),
+    inset -2px -2px 6px rgb(251 185 49 / 10%);
+    
+ /* Deep inset for inputs and depressed states */
+ --shadow-inset: 
+    inset 6px 6px 12px rgb(31 22 18 / 6%), 
+    inset -6px -6px 12px rgb(255 255 255 / 90%);
+
+ --swappy-info: #24579a;
+ --swappy-info-soft: #edf3ff;
+ --swappy-info-border: transparent;
+ --swappy-complete: #17635f;
+ --swappy-complete-soft: #e6f5f2;
+ --swappy-complete-border: transparent;
+ --swappy-quiet: #515d70;
+ --swappy-quiet-soft: #eef0f4;
+ --swappy-quiet-border: transparent;
+ --swappy-danger-glass: rgb(163 45 40 / 12%);
+ --swappy-danger-border: transparent;
+ --swappy-success-border: transparent;
+ --swappy-warning-border: transparent;
+ --swappy-overlay: rgb(45 33 24 / 40%);
+}

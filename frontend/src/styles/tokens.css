@@ -1,0 +1,28 @@
+@theme inline {
+ --color-background: var(--swappy-background);
+ --color-surface: var(--swappy-surface);
+ --color-surface-muted: var(--swappy-surface-muted);
+ --color-foreground: var(--swappy-foreground);
+ --color-muted: var(--swappy-muted);
+ --color-accent: var(--swappy-accent);
+ --color-accent-soft: var(--swappy-accent-soft);
+ --color-border: var(--swappy-border);
+ --color-danger: var(--swappy-danger);
+ --color-success: var(--swappy-success);
+ --font-sans: "Manrope", "Segoe UI", system-ui, sans-serif;
+ 
+ /* Increased for a softer clay look */
+ --radius-control: 1.25rem; 
+ --radius-card: 2rem;
+}
+:root {
+ --space-page: clamp(1rem, 4vw, 2.5rem);
+ --width-content: 72rem;
+ --width-reading: 44rem;
+ --radius-pill: 999px;
+ --duration-fast: 160ms;
+ --duration-normal: 240ms;
+ --layer-navigation: 20;
+ --layer-overlay: 40;
+ --layer-toast: 60;
+}

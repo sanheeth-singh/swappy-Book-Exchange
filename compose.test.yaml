@@ -1,0 +1,17 @@
+# Disposable test database only; no production volumes or credentials.
+services:
+  db:
+    image: postgres:18
+    environment:
+      POSTGRES_USER: swappy_test
+      POSTGRES_PASSWORD: local-readiness-only
+      POSTGRES_DB: swappy_test
+    ports:
+      - "127.0.0.1:55432:5432"
+    tmpfs:
+      - /var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U swappy_test -d swappy_test"]
+      interval: 2s
+      timeout: 3s
+      retries: 30

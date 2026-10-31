@@ -1,0 +1,23 @@
+# Import every model for Alembic metadata registration.
+from app.modules.auth.models import LoginSession as LoginSession
+from app.modules.auth.models import RefreshCredential as RefreshCredential
+from app.modules.books.models import BookListing as BookListing
+from app.modules.books.models import BookPhoto as BookPhoto
+from app.modules.books.models import PhotoDeletionTask as PhotoDeletionTask
+from app.modules.books.models import PhysicalBook as PhysicalBook
+from app.modules.chat.models import ChatMessage as ChatMessage
+from app.modules.chat.models import ChatReadPosition as ChatReadPosition
+from app.modules.colleges.models import Campus as Campus
+from app.modules.colleges.models import College as College
+from app.modules.colleges.models import DirectoryAction as DirectoryAction
+from app.modules.colleges.models import Membership as Membership
+from app.modules.exchanges.models import Exchange as Exchange
+from app.modules.exchanges.models import ExchangeIssue as ExchangeIssue
+from app.modules.exchanges.models import Reservation as Reservation
+from app.modules.moderation.models import ModerationAction as ModerationAction
+from app.modules.moderation.models import Report as Report
+from app.modules.moderation.models import UserBlock as UserBlock
+from app.modules.notifications.models import Notification as Notification
+from app.modules.reviews.models import Review as Review
+from app.modules.reviews.models import ReviewModerationAction as ReviewModerationAction
+from app.modules.users.models import User as User

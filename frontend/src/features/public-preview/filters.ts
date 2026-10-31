@@ -1,0 +1,2 @@
+export function parseOffset(raw: string | null): number { const value = Number(raw); return Number.isInteger(value) && value >= 0 && value < 100 ? value : 0; }
+export function previewSearch(params: URLSearchParams, changes: Record<string, string | number | null>) { const next = new URLSearchParams(params); for (const [key, value] of Object.entries(changes)) { if (value === null || value === "" || value === 0) next.delete(key); else next.set(key, String(value)); } return next.toString(); }

@@ -1,0 +1,802 @@
+[
+  {
+    "operationId": "health_health_get",
+    "method": "GET",
+    "path": "/health",
+    "area": "health",
+    "status": "operational",
+    "screen": "health monitoring"
+  },
+  {
+    "operationId": "register_user_api_v1_auth_register_post",
+    "method": "POST",
+    "path": "/api/v1/auth/register",
+    "area": "auth",
+    "status": "planned",
+    "screen": "/login, /register",
+    "stage": 2
+  },
+  {
+    "operationId": "login_api_v1_auth_token_post",
+    "method": "POST",
+    "path": "/api/v1/auth/token",
+    "area": "auth",
+    "status": "planned",
+    "screen": "/login, /register",
+    "stage": 2
+  },
+  {
+    "operationId": "csrf_token_api_v1_auth_csrf_get",
+    "method": "GET",
+    "path": "/api/v1/auth/csrf",
+    "area": "auth",
+    "status": "planned",
+    "screen": "/login, /register",
+    "stage": 2
+  },
+  {
+    "operationId": "refresh_api_v1_auth_refresh_post",
+    "method": "POST",
+    "path": "/api/v1/auth/refresh",
+    "area": "auth",
+    "status": "planned",
+    "screen": "/login, /register",
+    "stage": 2
+  },
+  {
+    "operationId": "logout_api_v1_auth_logout_post",
+    "method": "POST",
+    "path": "/api/v1/auth/logout",
+    "area": "auth",
+    "status": "planned",
+    "screen": "/settings/sessions",
+    "stage": 6
+  },
+  {
+    "operationId": "logout_all_api_v1_auth_logout_all_post",
+    "method": "POST",
+    "path": "/api/v1/auth/logout-all",
+    "area": "auth",
+    "status": "planned",
+    "screen": "/settings/sessions",
+    "stage": 6
+  },
+  {
+    "operationId": "sessions_api_v1_auth_sessions_get",
+    "method": "GET",
+    "path": "/api/v1/auth/sessions",
+    "area": "auth",
+    "status": "planned",
+    "screen": "/settings/sessions",
+    "stage": 6
+  },
+  {
+    "operationId": "revoke_session_api_v1_auth_sessions__session_id__revoke_post",
+    "method": "POST",
+    "path": "/api/v1/auth/sessions/{session_id}/revoke",
+    "area": "auth",
+    "status": "planned",
+    "screen": "/settings/sessions",
+    "stage": 6
+  },
+  {
+    "operationId": "me_api_v1_users_me_get",
+    "method": "GET",
+    "path": "/api/v1/users/me",
+    "area": "users",
+    "status": "planned",
+    "screen": "/profile, /users/[userId], /settings/profile",
+    "stage": 2
+  },
+  {
+    "operationId": "own_profile_api_v1_users_me_profile_get",
+    "method": "GET",
+    "path": "/api/v1/users/me/profile",
+    "area": "profiles and account settings",
+    "status": "planned",
+    "screen": "/profile, /users/[userId], /settings/profile",
+    "stage": 2
+  },
+  {
+    "operationId": "profile_api_v1_users_me_profile_put",
+    "method": "PUT",
+    "path": "/api/v1/users/me/profile",
+    "area": "users",
+    "status": "planned",
+    "screen": "/profile, /users/[userId], /settings/profile",
+    "stage": 2
+  },
+  {
+    "operationId": "edit_profile_api_v1_users_me_profile_patch",
+    "method": "PATCH",
+    "path": "/api/v1/users/me/profile",
+    "area": "profiles and account settings",
+    "status": "planned",
+    "screen": "/profile, /users/[userId], /settings/profile",
+    "stage": 2
+  },
+  {
+    "operationId": "colleges_api_v1_colleges_get",
+    "method": "GET",
+    "path": "/api/v1/colleges",
+    "area": "campus directory",
+    "status": "planned",
+    "screen": "/membership \u2014 campus selector",
+    "stage": 2
+  },
+  {
+    "operationId": "campuses_api_v1_campuses_get",
+    "method": "GET",
+    "path": "/api/v1/campuses",
+    "area": "campus directory",
+    "status": "planned",
+    "screen": "/membership \u2014 campus selector",
+    "stage": 2
+  },
+  {
+    "operationId": "colleges_api_v1_admin_colleges_get",
+    "method": "GET",
+    "path": "/api/v1/admin/colleges",
+    "area": "directory administration",
+    "status": "planned",
+    "screen": "/admin/colleges, /admin/campuses, /admin/audit",
+    "stage": 6
+  },
+  {
+    "operationId": "create_college_api_v1_admin_colleges_post",
+    "method": "POST",
+    "path": "/api/v1/admin/colleges",
+    "area": "directory administration",
+    "status": "planned",
+    "screen": "/admin/colleges, /admin/campuses, /admin/audit",
+    "stage": 6
+  },
+  {
+    "operationId": "edit_college_api_v1_admin_colleges__college_id__patch",
+    "method": "PATCH",
+    "path": "/api/v1/admin/colleges/{college_id}",
+    "area": "directory administration",
+    "status": "planned",
+    "screen": "/admin/colleges, /admin/campuses, /admin/audit",
+    "stage": 6
+  },
+  {
+    "operationId": "college_status_api_v1_admin_colleges__college_id__status_post",
+    "method": "POST",
+    "path": "/api/v1/admin/colleges/{college_id}/status",
+    "area": "directory administration",
+    "status": "planned",
+    "screen": "/admin/colleges, /admin/campuses, /admin/audit",
+    "stage": 6
+  },
+  {
+    "operationId": "college_impact_api_v1_admin_colleges__college_id__impact_get",
+    "method": "GET",
+    "path": "/api/v1/admin/colleges/{college_id}/impact",
+    "area": "directory administration",
+    "status": "planned",
+    "screen": "/admin/colleges, /admin/campuses, /admin/audit",
+    "stage": 6
+  },
+  {
+    "operationId": "campuses_api_v1_admin_campuses_get",
+    "method": "GET",
+    "path": "/api/v1/admin/campuses",
+    "area": "directory administration",
+    "status": "planned",
+    "screen": "/admin/colleges, /admin/campuses, /admin/audit",
+    "stage": 6
+  },
+  {
+    "operationId": "create_campus_api_v1_admin_campuses_post",
+    "method": "POST",
+    "path": "/api/v1/admin/campuses",
+    "area": "directory administration",
+    "status": "planned",
+    "screen": "/admin/colleges, /admin/campuses, /admin/audit",
+    "stage": 6
+  },
+  {
+    "operationId": "edit_campus_api_v1_admin_campuses__campus_id__patch",
+    "method": "PATCH",
+    "path": "/api/v1/admin/campuses/{campus_id}",
+    "area": "directory administration",
+    "status": "planned",
+    "screen": "/admin/colleges, /admin/campuses, /admin/audit",
+    "stage": 6
+  },
+  {
+    "operationId": "campus_status_api_v1_admin_campuses__campus_id__status_post",
+    "method": "POST",
+    "path": "/api/v1/admin/campuses/{campus_id}/status",
+    "area": "directory administration",
+    "status": "planned",
+    "screen": "/admin/colleges, /admin/campuses, /admin/audit",
+    "stage": 6
+  },
+  {
+    "operationId": "campus_impact_api_v1_admin_campuses__campus_id__impact_get",
+    "method": "GET",
+    "path": "/api/v1/admin/campuses/{campus_id}/impact",
+    "area": "directory administration",
+    "status": "planned",
+    "screen": "/admin/colleges, /admin/campuses, /admin/audit",
+    "stage": 6
+  },
+  {
+    "operationId": "actions_api_v1_admin_directory_actions_get",
+    "method": "GET",
+    "path": "/api/v1/admin/directory/actions",
+    "area": "directory administration",
+    "status": "planned",
+    "screen": "/admin/colleges, /admin/campuses, /admin/audit",
+    "stage": 6
+  },
+  {
+    "operationId": "my_membership_api_v1_membership_me_get",
+    "method": "GET",
+    "path": "/api/v1/membership/me",
+    "area": "membership",
+    "status": "planned",
+    "screen": "/membership",
+    "stage": 2
+  },
+  {
+    "operationId": "eligibility_api_v1_membership_eligibility_get",
+    "method": "GET",
+    "path": "/api/v1/membership/eligibility",
+    "area": "membership",
+    "status": "planned",
+    "screen": "/membership",
+    "stage": 2
+  },
+  {
+    "operationId": "review_queue_api_v1_membership_submissions_get",
+    "method": "GET",
+    "path": "/api/v1/membership/submissions",
+    "area": "membership",
+    "status": "planned",
+    "screen": "/admin/memberships",
+    "stage": 2
+  },
+  {
+    "operationId": "submit_api_v1_membership_submissions_post",
+    "method": "POST",
+    "path": "/api/v1/membership/submissions",
+    "area": "membership",
+    "status": "planned",
+    "screen": "/membership",
+    "stage": 2
+  },
+  {
+    "operationId": "download_document_api_v1_membership_submissions__submission_id__document_get",
+    "method": "GET",
+    "path": "/api/v1/membership/submissions/{submission_id}/document",
+    "area": "membership",
+    "status": "planned",
+    "screen": "/membership",
+    "stage": 2
+  },
+  {
+    "operationId": "review_api_v1_membership_submissions__submission_id__review_post",
+    "method": "POST",
+    "path": "/api/v1/membership/submissions/{submission_id}/review",
+    "area": "membership",
+    "status": "planned",
+    "screen": "/admin/memberships",
+    "stage": 2
+  },
+  {
+    "operationId": "books_api_v1_books_get",
+    "method": "GET",
+    "path": "/api/v1/books",
+    "area": "books",
+    "status": "planned",
+    "screen": "/my-books, /books, /books/[bookId]",
+    "stage": 3
+  },
+  {
+    "operationId": "create_book_api_v1_books_post",
+    "method": "POST",
+    "path": "/api/v1/books",
+    "area": "books",
+    "status": "planned",
+    "screen": "/my-books, /books, /books/[bookId]",
+    "stage": 3
+  },
+  {
+    "operationId": "genres_api_v1_books_genres_get",
+    "method": "GET",
+    "path": "/api/v1/books/genres",
+    "area": "books",
+    "status": "planned",
+    "screen": "/my-books, /books, /books/[bookId]",
+    "stage": 3
+  },
+  {
+    "operationId": "recommended_books_api_v1_books_recommendations_get",
+    "method": "GET",
+    "path": "/api/v1/books/recommendations",
+    "area": "books",
+    "status": "planned",
+    "screen": "/my-books, /books, /books/[bookId]",
+    "stage": 3
+  },
+  {
+    "operationId": "my_books_api_v1_books_me_get",
+    "method": "GET",
+    "path": "/api/v1/books/me",
+    "area": "books",
+    "status": "planned",
+    "screen": "/my-books, /books, /books/[bookId]",
+    "stage": 3
+  },
+  {
+    "operationId": "collection_api_v1_books_collection_get",
+    "method": "GET",
+    "path": "/api/v1/books/collection",
+    "area": "books",
+    "status": "planned",
+    "screen": "/my-books, /books, /books/[bookId]",
+    "stage": 3
+  },
+  {
+    "operationId": "edit_book_api_v1_books__book_id__put",
+    "method": "PUT",
+    "path": "/api/v1/books/{book_id}",
+    "area": "books",
+    "status": "planned",
+    "screen": "/my-books, /books, /books/[bookId]",
+    "stage": 3
+  },
+  {
+    "operationId": "book_api_v1_books__book_id__get",
+    "method": "GET",
+    "path": "/api/v1/books/{book_id}",
+    "area": "books",
+    "status": "planned",
+    "screen": "/my-books, /books, /books/[bookId]",
+    "stage": 3
+  },
+  {
+    "operationId": "archive_book_api_v1_books__book_id__archive_post",
+    "method": "POST",
+    "path": "/api/v1/books/{book_id}/archive",
+    "area": "books",
+    "status": "planned",
+    "screen": "/my-books, /books, /books/[bookId]",
+    "stage": 3
+  },
+  {
+    "operationId": "set_public_preview_api_v1_books__book_id__public_preview_patch",
+    "method": "PATCH",
+    "path": "/api/v1/books/{book_id}/public-preview",
+    "area": "books",
+    "status": "planned",
+    "screen": "/my-books, /books, /books/[bookId]",
+    "stage": 3
+  },
+  {
+    "operationId": "upload_photo_api_v1_books__book_id__photos_post",
+    "method": "POST",
+    "path": "/api/v1/books/{book_id}/photos",
+    "area": "books",
+    "status": "planned",
+    "screen": "/my-books, /books, /books/[bookId]",
+    "stage": 3
+  },
+  {
+    "operationId": "propose_api_v1_exchanges_post",
+    "method": "POST",
+    "path": "/api/v1/exchanges",
+    "area": "exchanges",
+    "status": "planned",
+    "screen": "/exchanges/[exchangeId]",
+    "stage": 4
+  },
+  {
+    "operationId": "sent_api_v1_exchanges_sent_get",
+    "method": "GET",
+    "path": "/api/v1/exchanges/sent",
+    "area": "exchanges",
+    "status": "planned",
+    "screen": "/exchanges/[exchangeId]",
+    "stage": 4
+  },
+  {
+    "operationId": "received_api_v1_exchanges_received_get",
+    "method": "GET",
+    "path": "/api/v1/exchanges/received",
+    "area": "exchanges",
+    "status": "planned",
+    "screen": "/exchanges/[exchangeId]",
+    "stage": 4
+  },
+  {
+    "operationId": "open_issues_api_v1_exchanges_admin_issues_get",
+    "method": "GET",
+    "path": "/api/v1/exchanges/admin/issues",
+    "area": "exchanges",
+    "status": "planned",
+    "screen": "/admin/issues",
+    "stage": 4
+  },
+  {
+    "operationId": "admin_detail_api_v1_exchanges_admin__exchange_id__get",
+    "method": "GET",
+    "path": "/api/v1/exchanges/admin/{exchange_id}",
+    "area": "exchanges",
+    "status": "planned",
+    "screen": "/admin/issues",
+    "stage": 4
+  },
+  {
+    "operationId": "accept_api_v1_exchanges__exchange_id__accept_post",
+    "method": "POST",
+    "path": "/api/v1/exchanges/{exchange_id}/accept",
+    "area": "exchanges",
+    "status": "planned",
+    "screen": "/exchanges/[exchangeId]",
+    "stage": 4
+  },
+  {
+    "operationId": "reject_api_v1_exchanges__exchange_id__reject_post",
+    "method": "POST",
+    "path": "/api/v1/exchanges/{exchange_id}/reject",
+    "area": "exchanges",
+    "status": "planned",
+    "screen": "/exchanges/[exchangeId]",
+    "stage": 4
+  },
+  {
+    "operationId": "cancel_api_v1_exchanges__exchange_id__cancel_post",
+    "method": "POST",
+    "path": "/api/v1/exchanges/{exchange_id}/cancel",
+    "area": "exchanges",
+    "status": "planned",
+    "screen": "/exchanges/[exchangeId]",
+    "stage": 4
+  },
+  {
+    "operationId": "confirm_api_v1_exchanges__exchange_id__confirm_post",
+    "method": "POST",
+    "path": "/api/v1/exchanges/{exchange_id}/confirm",
+    "area": "exchanges",
+    "status": "planned",
+    "screen": "/exchanges/[exchangeId]",
+    "stage": 4
+  },
+  {
+    "operationId": "issue_api_v1_exchanges__exchange_id__issues_post",
+    "method": "POST",
+    "path": "/api/v1/exchanges/{exchange_id}/issues",
+    "area": "exchanges",
+    "status": "planned",
+    "screen": "/exchanges/[exchangeId]",
+    "stage": 4
+  },
+  {
+    "operationId": "exchange_issues_api_v1_exchanges__exchange_id__issues_get",
+    "method": "GET",
+    "path": "/api/v1/exchanges/{exchange_id}/issues",
+    "area": "exchanges",
+    "status": "planned",
+    "screen": "/exchanges/[exchangeId]",
+    "stage": 4
+  },
+  {
+    "operationId": "resolve_api_v1_exchanges__exchange_id__resolve_post",
+    "method": "POST",
+    "path": "/api/v1/exchanges/{exchange_id}/resolve",
+    "area": "exchanges",
+    "status": "planned",
+    "screen": "/admin/issues",
+    "stage": 4
+  },
+  {
+    "operationId": "detail_api_v1_exchanges__exchange_id__get",
+    "method": "GET",
+    "path": "/api/v1/exchanges/{exchange_id}",
+    "area": "exchanges",
+    "status": "planned",
+    "screen": "/exchanges/[exchangeId]",
+    "stage": 4
+  },
+  {
+    "operationId": "my_blocks_api_v1_blocks_get",
+    "method": "GET",
+    "path": "/api/v1/blocks",
+    "area": "blocking",
+    "status": "planned",
+    "screen": "/settings/blocked-users, /users/[userId]",
+    "stage": 5
+  },
+  {
+    "operationId": "block_api_v1_blocks__user_id__post",
+    "method": "POST",
+    "path": "/api/v1/blocks/{user_id}",
+    "area": "blocking",
+    "status": "planned",
+    "screen": "/settings/blocked-users, /users/[userId]",
+    "stage": 5
+  },
+  {
+    "operationId": "unblock_api_v1_blocks__user_id__unblock_post",
+    "method": "POST",
+    "path": "/api/v1/blocks/{user_id}/unblock",
+    "area": "blocking",
+    "status": "planned",
+    "screen": "/settings/blocked-users, /users/[userId]",
+    "stage": 5
+  },
+  {
+    "operationId": "history_api_v1_exchanges__exchange_id__chat_messages_get",
+    "method": "GET",
+    "path": "/api/v1/exchanges/{exchange_id}/chat/messages",
+    "area": "exchange chat",
+    "status": "planned",
+    "screen": "/exchanges/[exchangeId] \u2014 conversation",
+    "stage": 5
+  },
+  {
+    "operationId": "send_api_v1_exchanges__exchange_id__chat_messages_post",
+    "method": "POST",
+    "path": "/api/v1/exchanges/{exchange_id}/chat/messages",
+    "area": "exchange chat",
+    "status": "planned",
+    "screen": "/exchanges/[exchangeId] \u2014 conversation",
+    "stage": 5
+  },
+  {
+    "operationId": "read_api_v1_exchanges__exchange_id__chat_read_post",
+    "method": "POST",
+    "path": "/api/v1/exchanges/{exchange_id}/chat/read",
+    "area": "exchange chat",
+    "status": "planned",
+    "screen": "/exchanges/[exchangeId] \u2014 conversation",
+    "stage": 5
+  },
+  {
+    "operationId": "report_api_v1_reports_post",
+    "method": "POST",
+    "path": "/api/v1/reports",
+    "area": "reports",
+    "status": "planned",
+    "screen": "/reports, /reports/[reportId]",
+    "stage": 5
+  },
+  {
+    "operationId": "my_reports_api_v1_reports_me_get",
+    "method": "GET",
+    "path": "/api/v1/reports/me",
+    "area": "reports",
+    "status": "planned",
+    "screen": "/reports, /reports/[reportId]",
+    "stage": 5
+  },
+  {
+    "operationId": "report_detail_api_v1_reports__report_id__get",
+    "method": "GET",
+    "path": "/api/v1/reports/{report_id}",
+    "area": "reports",
+    "status": "planned",
+    "screen": "/reports, /reports/[reportId]",
+    "stage": 5
+  },
+  {
+    "operationId": "submit_api_v1_exchanges__exchange_id__reviews_post",
+    "method": "POST",
+    "path": "/api/v1/exchanges/{exchange_id}/reviews",
+    "area": "reviews and reputation",
+    "status": "planned",
+    "screen": "/users/[userId], /exchanges/[exchangeId]",
+    "stage": 5
+  },
+  {
+    "operationId": "exchange_reviews_api_v1_exchanges__exchange_id__reviews_get",
+    "method": "GET",
+    "path": "/api/v1/exchanges/{exchange_id}/reviews",
+    "area": "reviews and reputation",
+    "status": "planned",
+    "screen": "/users/[userId], /exchanges/[exchangeId]",
+    "stage": 5
+  },
+  {
+    "operationId": "user_reviews_api_v1_users__user_id__reviews_get",
+    "method": "GET",
+    "path": "/api/v1/users/{user_id}/reviews",
+    "area": "reviews and reputation",
+    "status": "planned",
+    "screen": "/users/[userId], /exchanges/[exchangeId]",
+    "stage": 5
+  },
+  {
+    "operationId": "reputation_api_v1_users__user_id__reputation_get",
+    "method": "GET",
+    "path": "/api/v1/users/{user_id}/reputation",
+    "area": "reviews and reputation",
+    "status": "planned",
+    "screen": "/users/[userId], /exchanges/[exchangeId]",
+    "stage": 5
+  },
+  {
+    "operationId": "queue_api_v1_moderation_reviews_get",
+    "method": "GET",
+    "path": "/api/v1/moderation/reviews",
+    "area": "reviews and reputation",
+    "status": "planned",
+    "screen": "/admin/moderation",
+    "stage": 6
+  },
+  {
+    "operationId": "moderate_api_v1_moderation_reviews__review_id__post",
+    "method": "POST",
+    "path": "/api/v1/moderation/reviews/{review_id}",
+    "area": "reviews and reputation",
+    "status": "planned",
+    "screen": "/admin/moderation",
+    "stage": 6
+  },
+  {
+    "operationId": "actions_api_v1_moderation_reviews__review_id__actions_get",
+    "method": "GET",
+    "path": "/api/v1/moderation/reviews/{review_id}/actions",
+    "area": "reviews and reputation",
+    "status": "planned",
+    "screen": "/admin/moderation",
+    "stage": 6
+  },
+  {
+    "operationId": "report_queue_api_v1_moderation_reports_get",
+    "method": "GET",
+    "path": "/api/v1/moderation/reports",
+    "area": "moderation",
+    "status": "planned",
+    "screen": "/admin/moderation",
+    "stage": 6
+  },
+  {
+    "operationId": "detail_api_v1_moderation_reports__report_id__get",
+    "method": "GET",
+    "path": "/api/v1/moderation/reports/{report_id}",
+    "area": "moderation",
+    "status": "planned",
+    "screen": "/admin/moderation",
+    "stage": 6
+  },
+  {
+    "operationId": "review_api_v1_moderation_reports__report_id__review_post",
+    "method": "POST",
+    "path": "/api/v1/moderation/reports/{report_id}/review",
+    "area": "moderation",
+    "status": "planned",
+    "screen": "/admin/moderation",
+    "stage": 6
+  },
+  {
+    "operationId": "restore_user_api_v1_moderation_users__user_id__restore_post",
+    "method": "POST",
+    "path": "/api/v1/moderation/users/{user_id}/restore",
+    "area": "moderation",
+    "status": "planned",
+    "screen": "/admin/moderation",
+    "stage": 6
+  },
+  {
+    "operationId": "restore_listing_api_v1_moderation_listings__listing_id__restore_post",
+    "method": "POST",
+    "path": "/api/v1/moderation/listings/{listing_id}/restore",
+    "area": "moderation",
+    "status": "planned",
+    "screen": "/admin/moderation",
+    "stage": 6
+  },
+  {
+    "operationId": "actions_api_v1_moderation_actions_get",
+    "method": "GET",
+    "path": "/api/v1/moderation/actions",
+    "area": "moderation",
+    "status": "planned",
+    "screen": "/admin/moderation",
+    "stage": 6
+  },
+  {
+    "operationId": "inbox_api_v1_notifications_get",
+    "method": "GET",
+    "path": "/api/v1/notifications",
+    "area": "notifications",
+    "status": "planned",
+    "screen": "/notifications \u2014 header entry",
+    "stage": 5
+  },
+  {
+    "operationId": "unread_count_api_v1_notifications_unread_count_get",
+    "method": "GET",
+    "path": "/api/v1/notifications/unread-count",
+    "area": "notifications",
+    "status": "planned",
+    "screen": "/notifications \u2014 header entry",
+    "stage": 5
+  },
+  {
+    "operationId": "mark_all_api_v1_notifications_read_all_post",
+    "method": "POST",
+    "path": "/api/v1/notifications/read-all",
+    "area": "notifications",
+    "status": "planned",
+    "screen": "/notifications \u2014 header entry",
+    "stage": 5
+  },
+  {
+    "operationId": "mark_read_api_v1_notifications__notification_id__read_post",
+    "method": "POST",
+    "path": "/api/v1/notifications/{notification_id}/read",
+    "area": "notifications",
+    "status": "planned",
+    "screen": "/notifications \u2014 header entry",
+    "stage": 5
+  },
+  {
+    "operationId": "avatars_api_v1_users_avatars_get",
+    "method": "GET",
+    "path": "/api/v1/users/avatars",
+    "area": "profiles and account settings",
+    "status": "planned",
+    "screen": "/profile, /users/[userId], /settings/profile",
+    "stage": 2
+  },
+  {
+    "operationId": "deactivation_eligibility_api_v1_users_me_deactivation_get",
+    "method": "GET",
+    "path": "/api/v1/users/me/deactivation",
+    "area": "profiles and account settings",
+    "status": "planned",
+    "screen": "/settings/account",
+    "stage": 6
+  },
+  {
+    "operationId": "change_password_api_v1_users_me_password_post",
+    "method": "POST",
+    "path": "/api/v1/users/me/password",
+    "area": "profiles and account settings",
+    "status": "planned",
+    "screen": "/settings/account",
+    "stage": 6
+  },
+  {
+    "operationId": "deactivate_api_v1_users_me_deactivate_post",
+    "method": "POST",
+    "path": "/api/v1/users/me/deactivate",
+    "area": "profiles and account settings",
+    "status": "planned",
+    "screen": "/settings/account",
+    "stage": 6
+  },
+  {
+    "operationId": "public_profile_api_v1_users__user_id__profile_get",
+    "method": "GET",
+    "path": "/api/v1/users/{user_id}/profile",
+    "area": "profiles and account settings",
+    "status": "planned",
+    "screen": "/profile, /users/[userId], /settings/profile",
+    "stage": 2
+  },
+  {
+    "operationId": "profile_books_api_v1_users__user_id__books_get",
+    "method": "GET",
+    "path": "/api/v1/users/{user_id}/books",
+    "area": "profiles and account settings",
+    "status": "planned",
+    "screen": "/profile, /users/[userId], /settings/profile",
+    "stage": 2
+  },
+  {
+    "operationId": "books_api_v1_public_books_get",
+    "method": "GET",
+    "path": "/api/v1/public/books",
+    "area": "visitor book preview",
+    "status": "integrated",
+    "screen": "/explore",
+    "stage": 1
+  }
+]

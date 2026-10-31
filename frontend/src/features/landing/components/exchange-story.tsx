@@ -1,0 +1,4 @@
+import { ArrowLeftRight } from "lucide-react";
+import { Card } from "@/components/ui/card";
+import { ExchangeBookSummaryCard } from "@/components/cards/exchange-book-summary";
+export function ExchangeStory() { return <Card className="exchange-story"><div className="mb-5 flex flex-wrap items-center justify-between gap-2"><p className="eyebrow">One shelf. Two new chapters.</p><span className="text-xs text-muted">Illustrative exchange</span></div><div className="exchange-pair"><ExchangeBookSummaryCard label="You give" book={{ title: "A story you loved", author: "From your shelf" }} /><div className="exchange-divider" aria-hidden="true"><ArrowLeftRight size={18} /></div><ExchangeBookSummaryCard label="You receive" book={{ title: "Your next good read", author: "From a campus reader" }} /></div><p className="mt-5 text-sm text-muted">Offer a book. Agree on the exchange. Meet on campus.</p></Card>; }

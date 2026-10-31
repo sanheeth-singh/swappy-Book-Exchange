@@ -1,0 +1,1 @@
+export function validateProof(file?: Pick<File, "type" | "size">): string | undefined { if (!file) return "Choose a JPEG or PNG image."; if (!["image/jpeg", "image/png"].includes(file.type)) return "Choose a JPEG or PNG image, not a PDF."; if (file.size <= 0 || file.size > 5 * 1024 * 1024) return "Choose an image between 1 byte and 5 MiB."; }

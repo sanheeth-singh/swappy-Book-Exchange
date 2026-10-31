@@ -1,0 +1,46 @@
+name: backend
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    services:
+      postgres:
+        image: postgres:18
+        env:
+          POSTGRES_USER: swappy
+          POSTGRES_PASSWORD: ci-only-password
+          POSTGRES_DB: swappy_test
+        ports: ["5432:5434"]
+        options: >-
+          --health-cmd "pg_isready -U swappy -d swappy_test"
+          --health-interval 5s --health-timeout 3s --health-retries 10
+    defaults:
+      run:
+        working-directory: backend
+    env:
+      DATABASE_URL: postgresql+asyncpg://swappy:ci-only-password@localhost:5432/swappy_test
+      TEST_DATABASE_URL: postgresql+asyncpg://swappy:ci-only-password@localhost:5432/swappy_test
+      JWT_SECRET: ci-only-signing-key-with-over-32-characters
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements-dev.lock
+      - run: ruff check .
+      - run: ruff format --check .
+      - run: alembic upgrade head
+      - run: alembic check
+      - run: python -m pytest -q --require-postgres --migrated-schema --junitxml=test-results.xml
+      - run: alembic downgrade base
+      - run: alembic upgrade head
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: backend-test-results
+          path: backend/test-results.xml
+          if-no-files-found: ignore
+

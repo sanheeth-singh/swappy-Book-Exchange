@@ -1,0 +1,3 @@
+import { BookCover } from "./book-cover";
+export type ExchangeBookSummary = { title: string; author: string; coverUrl?: string | null };
+export function ExchangeBookSummaryCard({ label, book }: { label: string; book: ExchangeBookSummary }) { return <div className="exchange-book-summary"><p className="eyebrow">{label}</p><div className="exchange-book-content"><BookCover title={book.title} author={book.author} coverUrl={book.coverUrl} compact /><div className="min-w-0"><h3 className="break-words text-sm">{book.title}</h3><p className="mt-1 text-xs text-muted">{book.author}</p></div></div></div>; }
