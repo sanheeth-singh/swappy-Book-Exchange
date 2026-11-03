@@ -200,13 +200,6 @@ export function ReaderScreen({ id }: { id: string }) {
         )}
       </motion.section>
 
-      {/* --- 3. Reader Bookshelf --- */}
-      {profile.isSuccess && !isOwnProfile && (
-        <motion.div variants={fadeUp}>
-          <ReaderBooks id={id} />
-        </motion.div>
-      )}
-
       {/* --- 4. Published Reviews --- */}
       <motion.section variants={fadeUp} className="space-y-6">
         <h2 className="text-2xl font-bold text-slate-800 flex items-center gap-2 px-2">
@@ -266,6 +259,15 @@ export function ReaderScreen({ id }: { id: string }) {
         )}
       </motion.section>
 
+
+      {/* --- 3. Reader Bookshelf --- */}
+      {profile.isSuccess && !isOwnProfile && (
+        <motion.div variants={fadeUp}>
+          <ReaderBooks id={id} />
+        </motion.div>
+      )}
+
+      
       {/* --- 5. Safety Actions Footer --- */}
       {!isOwnProfile && (
         <motion.div variants={fadeUp} className="pt-10 mt-10 border-t-2 border-[#e8d7c4]/40">

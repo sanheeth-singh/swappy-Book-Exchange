@@ -107,7 +107,11 @@
  .book-fallback-title { overflow-wrap: anywhere; font-weight: 650; font-size: clamp(1rem, 3vw, 1.4rem); line-height: 1.25; }
  .book-cover-compact .book-fallback-imprint { font-size: .5rem; }
  .book-cover-compact .book-fallback-title { font-size: .65rem; line-height: 1.25; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
- .book-results-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
+ .book-results-grid { 
+  display: grid; 
+  grid-template-columns: repeat(2, minmax(0, 1fr)); 
+  gap: 0.75rem; /* Reduced gap for mobile */
+}
 
  /* --- Layout & UI Panels --- */
  .hero-section { display: grid; align-items: center; gap: 2rem; padding-block: clamp(2rem, 5vw, 4rem); }
@@ -260,13 +264,15 @@
  .conversation-placeholder { max-width: 32rem; margin: auto; padding: 4rem 2rem; text-align: center; }
 
  /* Responsive Media Queries */
+ /* Responsive Media Queries */
  @media (min-width: 40rem) { 
-    .book-results-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } 
+    /* .book-results-grid rule removed here, handled by 48rem breakpoint below */
     .exchange-book-content { grid-template-columns: 3.5rem minmax(0, 1fr); align-items: center; } 
     .definition-list > div { grid-template-columns: minmax(7rem, 1fr) minmax(0, 3fr); gap: 1.5rem; } 
  }
  @media (min-width: 48rem) { 
-    .book-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } 
+    .book-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; } 
+    .book-results-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; }
     .mobile-nav { display: none; } 
     .book-detail-intro { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: 2rem; padding: 2rem; } 
     .book-detail-heading { padding: .5rem 0; } 
@@ -280,19 +286,18 @@
     .messenger[data-thread-open="false"] .conversation-pane { display: none; } 
  }
  @media (max-width: 22rem) { 
-    .book-grid { grid-template-columns: minmax(0, 1fr); } 
- }
+   .book-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } 
+   .book-results-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.5rem; }
+}
  @media (min-width: 64rem) { 
     .hero-section { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 3rem; } 
     .reuse-panel { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); align-items: center; gap: 4rem; padding: 3rem; } 
     .help-layout { grid-template-columns: 16rem minmax(0, 1fr); gap: 4rem; } 
     .help-contents { display: block; position: sticky; top: 2rem; padding: 1.5rem; } 
-    .book-results-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } 
+    .book-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } 
+    .book-results-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); } 
     .admin-layout { grid-template-columns: 16rem minmax(0, 1fr); align-items: start; gap: 2rem; } 
     .admin-sidebar { position: sticky; top: 2rem; } 
     .admin-sidebar nav { display: grid; gap: 0.5rem; } 
  }
 }
-
-@keyframes breathe { 50% { opacity: .6; } }
-@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }

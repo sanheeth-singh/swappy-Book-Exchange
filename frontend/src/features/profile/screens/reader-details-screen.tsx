@@ -283,7 +283,7 @@ function DetailsForm({
             </div>
 
             {/* Visual Mobile Scroll Affordance Mask */}
-            <div className="absolute right-0 top-16 bottom-0 w-12 bg-gradient-to-l from-[#f7efe5] to-transparent pointer-events-none z-10 md:hidden" />
+            <div className="absolute right-0 top-16 bottom-0 w-12 bg-linear-to-l from-[#f7efe5] to-transparent pointer-events-none z-10 md:hidden" />
 
             <div 
               ref={carouselRef}
@@ -310,7 +310,7 @@ function DetailsForm({
                     {isSelected && (
                       <motion.div
                         layoutId="active-avatar-ring"
-                        className="absolute inset-0 rounded-[1.5rem] bg-white shadow-[6px_6px_12px_rgba(234,97,19,0.08),-6px_-6px_12px_rgba(255,255,255,0.9)] border-[3px] border-[#ea6113]"
+                        className="absolute inset-0 rounded-3xl bg-white shadow-[6px_6px_12px_rgba(234,97,19,0.08),-6px_-6px_12px_rgba(255,255,255,0.9)] border-[3px] border-[#ea6113]"
                         initial={false}
                         transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                       />
