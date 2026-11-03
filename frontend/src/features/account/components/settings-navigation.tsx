@@ -12,9 +12,9 @@ export function SettingsNavigation() {
         Signed-in devices
       </ButtonLink>
       {!user?.is_admin && (
-        <ButtonLink variant="secondary" href="/settings/profile">
-          Reader details
-        </ButtonLink>
+      <ButtonLink variant="secondary" href="/profile">
+        Back
+      </ButtonLink>
       )}
     </nav>
   );

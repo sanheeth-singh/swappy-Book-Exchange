@@ -3,7 +3,6 @@ import Link from "next/link";
 import { useState } from "react";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { useAuth } from "@/features/auth/auth-provider";
-import { ExchangeStatusBadge } from "@/features/exchanges/components/exchange-status-badge";
 import { givingAndReceiving } from "@/features/exchanges/policies";
 import {
   conversationPage,
@@ -11,12 +10,14 @@ import {
   activeConversation,
   type ConversationCursor,
 } from "../conversations";
-import { Button, ButtonLink } from "@/components/ui/button";
+import { ButtonLink } from "@/components/ui/button";
 import { ErrorState } from "@/components/feedback/error-state";
+import { motion } from "framer-motion";
 
 export function ConversationInbox({ selectedId }: { selectedId?: string }) {
   const { user } = useAuth();
   const [history, setHistory] = useState(false);
+  
   const query = useInfiniteQuery({
     queryKey: ["exchanges", "conversations"],
     initialPageParam: { sent: 0, received: 0 } as ConversationCursor,
@@ -31,56 +32,40 @@ export function ConversationInbox({ selectedId }: { selectedId?: string }) {
   );
 
   return (
-    <aside className="clay-card p-6 flex flex-col gap-4" aria-label="Exchange conversations">
-      <div className="space-y-3 mb-2">
-        <h2 className="text-2xl font-bold text-slate-800">Conversations</h2>
-        <p className="text-sm text-slate-500">
-          Chat opens when an exchange is accepted.
-        </p>
-        <div className="flex flex-wrap gap-3 mt-4">
+    <aside className="card flex flex-col h-full bg-[#f7efe5] border-none shadow-inset rounded-[2rem] overflow-hidden p-2" aria-label="Exchange conversations">
+      
+      {/* Sticky Top Controls */}
+      <div className="p-4 space-y-4">
+        <div className="flex bg-white rounded-full p-1 shadow-[inset_2px_2px_6px_rgba(31,22,18,0.08)]">
           <button
-            className={`px-4 py-2 ${!history ? 'clay-input' : 'clay-btn'} text-sm`}
+            className={`flex-1 py-2 px-4 rounded-full text-sm font-bold transition-all ${!history ? 'bg-[#ffe3b3] text-[#a83f08] shadow-[4px_4px_8px_rgba(234,97,19,0.1),-4px_-4px_8px_rgba(255,255,255,0.9)]' : 'text-slate-500 hover:text-slate-700'}`}
             aria-pressed={!history}
             onClick={() => setHistory(false)}
           >
             Active
           </button>
           <button
-            className={`px-4 py-2 ${history ? 'clay-input' : 'clay-btn'} text-sm`}
+            className={`flex-1 py-2 px-4 rounded-full text-sm font-bold transition-all ${history ? 'bg-[#ffe3b3] text-[#a83f08] shadow-[4px_4px_8px_rgba(234,97,19,0.1),-4px_-4px_8px_rgba(255,255,255,0.9)]' : 'text-slate-500 hover:text-slate-700'}`}
             aria-pressed={history}
             onClick={() => setHistory(true)}
           >
             History
           </button>
-          <button
-            className="px-4 py-2 clay-btn text-sm"
-            disabled={query.isFetching}
-            onClick={() => {
-              void query.refetch();
-            }}
-          >
-            Refresh
-          </button>
         </div>
       </div>
 
-      {query.isPending ? (
-        <p role="status" className="p-4 text-slate-500 animate-pulse">
-          Loading conversations…
-        </p>
-      ) : (
-        <>
-          {query.isError && (
-            <div className="py-4">
-              <ErrorState
-                message={query.error.message}
-                retry={() => {
-                  void query.refetch();
-                }}
-              />
-            </div>
-          )}
-          <nav aria-label="Choose a conversation" className="flex flex-col gap-4">
+      {/* Scrollable List */}
+      <div className="flex-1 overflow-y-auto px-2 pb-4 scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none]">
+        {query.isPending ? (
+          <div className="flex justify-center p-6">
+            <svg className="w-6 h-6 text-[#ea6113] animate-spin" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" /><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" /></svg>
+          </div>
+        ) : query.isError ? (
+          <div className="p-4 bg-[#fff0ee] rounded-2xl">
+            <ErrorState message={query.error.message} retry={() => void query.refetch()} />
+          </div>
+        ) : (
+          <nav className="flex flex-col gap-3">
             {items.map((exchange) => {
               const books = givingAndReceiving(exchange, user!.id);
               const isSelected = selectedId === exchange.id;
@@ -88,62 +73,45 @@ export function ConversationInbox({ selectedId }: { selectedId?: string }) {
               return (
                 <Link
                   key={exchange.id}
-                  className={`block p-4 ${isSelected ? 'clay-input' : 'clay-btn'}`}
+                  className={`block p-4 rounded-2xl transition-all ${isSelected ? 'bg-white shadow-[6px_6px_12px_rgba(31,22,18,0.06),-6px_-6px_12px_rgba(255,255,255,0.9)] border border-white' : 'bg-[#fffbf5] shadow-[inset_2px_2px_4px_rgba(255,255,255,0.8),inset_-2px_-2px_4px_rgba(31,22,18,0.04)] hover:bg-white'}`}
                   href={`/messages/${exchange.id}`}
                   aria-current={isSelected ? "page" : undefined}
                 >
-                  <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                    <h3 className="font-bold text-slate-700">
-                      {exchange.requester_id === user!.id
-                        ? exchange.owner_name
-                        : exchange.requester_name}
+                  <div className="flex items-center justify-between gap-2 mb-2">
+                    <h3 className={`font-bold truncate ${isSelected ? 'text-[#a83f08]' : 'text-slate-700'}`}>
+                      {exchange.requester_id === user!.id ? exchange.owner_name : exchange.requester_name}
                     </h3>
-                    <ExchangeStatusBadge status={exchange.status} />
+                    {/* Simplified Status Indicator instead of heavy badge */}
+                    <div className="flex items-center gap-1.5 shrink-0">
+                      <span className={`w-2 h-2 rounded-full ${exchange.status === 'ACCEPTED' ? 'bg-[#27633e]' : 'bg-[#ea6113]'}`} />
+                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wide">
+                        {exchange.status === 'ACCEPTED' ? 'Active' : 'Closed'}
+                      </span>
+                    </div>
                   </div>
-                  <p className="line-clamp-2 text-sm text-slate-700 font-medium">
+                  <p className="line-clamp-1 text-sm font-semibold text-slate-800">
                     {books.receiving.title}
                   </p>
-                  <p className="mt-1 line-clamp-1 text-xs text-slate-500">
-                    You offer {books.giving.title}
-                  </p>
-                  <p className="mt-3 text-xs font-semibold text-slate-400">
-                    Accepted {new Date(exchange.accepted_at!).toLocaleDateString()}
+                  <p className="line-clamp-1 text-xs font-medium text-slate-500 mt-1">
+                    Offering: {books.giving.title}
                   </p>
                 </Link>
               );
             })}
           </nav>
+        )}
 
-          {!items.length && !query.isError && (
-            <div className="space-y-4 py-6 text-center">
-              <p className="text-sm text-slate-500">
-                {query.hasNextPage
-                  ? "No matching conversations loaded yet. Check older exchanges below."
-                  : history
-                    ? "No closed conversations yet."
-                    : "No active accepted exchanges yet."}
-              </p>
-              <ButtonLink variant="secondary" className="clay-btn px-6 py-2 mt-2" href="/exchanges">
-                View exchanges
-              </ButtonLink>
+        {!items.length && !query.isError && !query.isPending && (
+          <div className="p-6 text-center space-y-4">
+            <div className="w-12 h-12 mx-auto rounded-full bg-[#e6eaf0] flex items-center justify-center shadow-inner text-slate-400">
+               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" /></svg>
             </div>
-          )}
-
-          {query.hasNextPage && (
-            <div className="pt-4">
-              <button
-                className="w-full clay-btn py-3 text-sm"
-                disabled={query.isFetching}
-                onClick={() => {
-                  void query.fetchNextPage();
-                }}
-              >
-                Load older conversations
-              </button>
-            </div>
-          )}
-        </>
-      )}
+            <p className="text-sm font-medium text-slate-500">
+              {history ? "No closed conversations yet." : "No active accepted exchanges yet."}
+            </p>
+          </div>
+        )}
+      </div>
     </aside>
   );
 }

@@ -17,6 +17,7 @@ export function PublicShell({ children }: { children: ReactNode }) {
           <Link className="nav-link" href="/help">
             Help
           </Link>
+          <Link className="nav-link" href="/developer">Developer</Link>
         </nav>
       </footer>
     </>

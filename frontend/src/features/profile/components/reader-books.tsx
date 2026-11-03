@@ -4,7 +4,8 @@ import { detailsApi } from "../details-api";
 import { ListingCard } from "@/features/books/components/listing-card";
 import { Button } from "@/components/ui/button";
 import { ErrorState } from "@/components/feedback/error-state";
-
+import { Book } from "lucide-react";
+import {motion} from "framer-motion"
 export function ReaderBooks({ id }: { id: string }) {
   const query = useInfiniteQuery({
     queryKey: ["books", "reader", id],
@@ -53,7 +54,12 @@ export function ReaderBooks({ id }: { id: string }) {
       ) : (
         <div className="card p-10 text-center">
           <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[#f7efe5] flex items-center justify-center shadow-inner text-2xl">
-            📚
+            <motion.div
+            whileHover={{ rotate: 5, scale: 1.05 }}
+            className="p-3 bg-orange-100 rounded-lg w-fit"
+          >
+            <Book className="text-orange-600" size={18} />
+          </motion.div>
           </div>
           <p className="text-slate-500 font-medium">No available listings visible here.</p>
         </div>
